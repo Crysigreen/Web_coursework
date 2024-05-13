@@ -1,19 +1,45 @@
 <!-- toolbar.component.html -->
-<mat-toolbar color="primary">
-  <mat-icon>search</mat-icon>
-  <mat-form-field appearance="fill">
-    <input matInput placeholder="Search stocks" [(ngModel)]="searchQuery" (ngModelChange)="onSearchChange()">
-  </mat-form-field>
-</mat-toolbar>
 
-<!-- Добавляем список для показа результатов -->
-<div *ngIf="searchResults$ | async as results" class="search-results">
-  <ul *ngIf="results.length; else noResultsTemplate">
-    <li *ngFor="let result of results">
-      <a (click)="selectStock(result)">{{ result.name }} ({{ result.symbol }})</a>
-    </li>
-  </ul>
-  <ng-template #noResultsTemplate>
-    <p>No results found</p>
-  </ng-template>
+<div class="toolbar">
+  <div class="logo">
+    <img src="microsoft-logo.png" alt="Microsoft">
+  </div>
+  <div class="menu">
+    <a href="#">Tech Community</a>
+    <div class="dropdown">
+      <a href="#">Community Hubs</a>
+    </div>
+    <a href="#">Blogs</a>
+    <div class="dropdown">
+      <a href="#">Events</a>
+    </div>
+    <div class="dropdown">
+      <a href="#">Microsoft Learn</a>
+    </div>
+    <a href="#">Lounge</a>
+  </div>
+  <div class="actions">
+    <a href="#">Search</a>
+    <a href="#">Sign In</a>
+  </div>
 </div>
+
+
+<!--<mat-toolbar color="primary">-->
+<!--  <mat-icon>search</mat-icon>-->
+<!--  <mat-form-field appearance="fill">-->
+<!--    <input matInput placeholder="Search stocks" [(ngModel)]="searchQuery" (ngModelChange)="onSearchChange()">-->
+<!--  </mat-form-field>-->
+<!--</mat-toolbar>-->
+
+<!--&lt;!&ndash; Добавляем список для показа результатов &ndash;&gt;-->
+<!--<div *ngIf="searchResults$ | async as results" class="search-results">-->
+<!--  <ul *ngIf="results.length; else noResultsTemplate">-->
+<!--    <li *ngFor="let result of results">-->
+<!--      <a (click)="selectStock(result)">{{ result.name }} ({{ result.symbol }})</a>-->
+<!--    </li>-->
+<!--  </ul>-->
+<!--  <ng-template #noResultsTemplate>-->
+<!--    <p>No results found</p>-->
+<!--  </ng-template>-->
+<!--</div>-->

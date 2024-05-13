@@ -1,29 +1,90 @@
-/* toolbar.component.scss */
-.search-results {
-  position: absolute;
-  background: white;
-  width: 100%;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-  z-index: 1000;
-  max-height: 300px;
-  overflow-y: auto;
-  ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    li {
-      padding: 10px;
-      border-bottom: 1px solid #ccc;
-      &:last-child {
-         border-bottom: none;
-       }
-      a {
-        text-decoration: none;
-        color: black;
-        &:hover {
-           text-decoration: underline;
-         }
+///* toolbar.component.scss */
+//.search-results {
+//  position: absolute;
+//  background: white;
+//  width: 100%;
+//  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+//  z-index: 1000;
+//  max-height: 300px;
+//  overflow-y: auto;
+//  ul {
+//    list-style: none;
+//    padding: 0;
+//    margin: 0;
+//    li {
+//      padding: 10px;
+//      border-bottom: 1px solid #ccc;
+//      &:last-child {
+//         border-bottom: none;
+//       }
+//      a {
+//        text-decoration: none;
+//        color: black;
+//        &:hover {
+//           text-decoration: underline;
+//         }
+//      }
+//    }
+//  }
+//}
+
+
+$font-family: Arial, sans-serif;
+$text-color: white;
+$bg-color: #000;
+$link-margin: 0 10px;
+$link-font-size: 16px;
+
+body {
+  font-family: $font-family;
+}
+
+.toolbar {
+  background-color: $bg-color;
+  color: $text-color;
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+  justify-content: space-between;
+
+  .logo img {
+    height: 40px; // Adjust size as needed
+  }
+
+  .menu, .actions {
+    a {
+      color: $text-color;
+      text-decoration: none;
+      margin: $link-margin;
+      font-size: $link-font-size;
+
+      &:hover {
+        text-decoration: underline;
       }
+    }
+  }
+
+  .actions {
+    a {
+      margin-left: 20px;
+    }
+  }
+}
+
+// Add responsiveness if necessary
+@media (max-width: 768px) {
+  .toolbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .menu, .actions {
+    flex-direction: column;
+    align-items: flex-start;
+
+    a {
+      display: block;
+      margin-bottom: 5px;
     }
   }
 }

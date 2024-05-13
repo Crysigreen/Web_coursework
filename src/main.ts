@@ -5,12 +5,14 @@ import {RouterModule, ROUTES} from "@angular/router";
 import {importProvidersFrom} from "@angular/core";
 import {provideHttpClient} from "@angular/common/http";
 import {FormsModule} from "@angular/forms";
+import {provideCharts, withDefaultRegisterables} from "ng2-charts";
 
 bootstrapApplication(AppComponent, {
   providers: [
     { provide: ROUTES, useValue: AppComponent.routes, multi: true },
     provideHttpClient(),
     FormsModule,
+    provideCharts(withDefaultRegisterables()),
     importProvidersFrom(RouterModule.forRoot(AppComponent.routes))
   ]
 }).catch(err => console.error(err));

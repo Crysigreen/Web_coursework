@@ -4,11 +4,12 @@ import {MatToolbar} from "@angular/material/toolbar";
 import {HomeComponent} from "./Components/home/home.component";
 import {HttpClientModule} from "@angular/common/http";
 import {ToolbarComponent} from "./Components/toolbar/toolbar.component";
+import {StockChartComponent} from "./Components/stock-chart/stock-chart.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, MatToolbar, HttpClientModule, ToolbarComponent],
+  imports: [RouterOutlet, MatToolbar, HttpClientModule, ToolbarComponent, StockChartComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

@@ -1,0 +1,83 @@
+/* Общие стили */
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+}
+
+.stock-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: #004f47; /* Подбор точного оттенка */
+  color: white;
+}
+
+.stock-info {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  width: 50px; /* Размер лого подбирать под свой */
+  margin-right: 15px;
+}
+
+.stock-info h1, .stock-info p {
+  margin: 0;
+  padding: 0;
+}
+
+.stock-stats {
+  text-align: right;
+}
+
+.stock-stats p {
+  margin: 0;
+  padding: 0;
+}
+
+button {
+  background-color: #28a745;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px; /* Добавим скругление для современного вида */
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #218838;
+}
+
+#stockChart {
+  width: 100%;
+  height: 400px; /* Высоту графика подбирать по потребностям */
+}
+
+
+.stock-stats{
+  display: flex;
+  flex-direction: row;
+  margin: 20px;
+}
+
+
+.money__value{
+    margin-right: 40px;
+
+}
+
+
+
+
+.price{
+  margin-right: 40px;
+}
+
+
+

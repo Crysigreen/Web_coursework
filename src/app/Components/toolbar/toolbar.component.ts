@@ -22,7 +22,7 @@ import {MatInputModule} from "@angular/material/input";
     AsyncPipe
   ],
   templateUrl: './toolbar.component.html',
-  styleUrl: './toolbar.component.scss'
+  styleUrl: './toolbar.css'
 })
 export class ToolbarComponent {
   searchQuery: string = '';

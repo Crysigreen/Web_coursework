@@ -8,7 +8,7 @@ import {StockMatch, StockSearchResult} from "../Models/stock-search-result";
 })
 export class AlphaVantageService {
   private baseUrl = 'https://www.alphavantage.co/query';
-  private apiKey = 'NDRJEMPQ2NGD4JL9';
+  private apiKey = 'POOUPAPDA79DT18Y';
 
   constructor(private http: HttpClient) {}
 
