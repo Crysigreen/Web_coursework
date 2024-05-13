@@ -1,0 +1,29 @@
+/* toolbar.component.scss */
+.search-results {
+  position: absolute;
+  background: white;
+  width: 100%;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  z-index: 1000;
+  max-height: 300px;
+  overflow-y: auto;
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    li {
+      padding: 10px;
+      border-bottom: 1px solid #ccc;
+      &:last-child {
+         border-bottom: none;
+       }
+      a {
+        text-decoration: none;
+        color: black;
+        &:hover {
+           text-decoration: underline;
+         }
+      }
+    }
+  }
+}

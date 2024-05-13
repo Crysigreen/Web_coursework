@@ -1,0 +1,8 @@
+<div *ngFor="let result of searchResults$ | async">
+  <div>
+    <h3>{{ result.name }} ({{ result.symbol }})</h3>
+    <p>Type: {{ result.type }}, Region: {{ result.region }}</p>
+    <p>Open: {{ result.marketOpen }} - Close: {{ result.marketClose }}</p>
+    <p>Currency: {{ result.currency }}, Timezone: {{ result.timezone }}</p>
+  </div>
+</div>

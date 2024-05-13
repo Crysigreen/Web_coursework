@@ -1,0 +1,19 @@
+<!-- toolbar.component.html -->
+<mat-toolbar color="primary">
+  <mat-icon>search</mat-icon>
+  <mat-form-field appearance="fill">
+    <input matInput placeholder="Search stocks" [(ngModel)]="searchQuery" (ngModelChange)="onSearchChange()">
+  </mat-form-field>
+</mat-toolbar>
+
+<!-- Добавляем список для показа результатов -->
+<div *ngIf="searchResults$ | async as results" class="search-results">
+  <ul *ngIf="results.length; else noResultsTemplate">
+    <li *ngFor="let result of results">
+      <a (click)="selectStock(result)">{{ result.name }} ({{ result.symbol }})</a>
+    </li>
+  </ul>
+  <ng-template #noResultsTemplate>
+    <p>No results found</p>
+  </ng-template>
+</div>
