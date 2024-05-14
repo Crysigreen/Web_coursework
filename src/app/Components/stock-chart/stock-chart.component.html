@@ -1,19 +1,15 @@
 <div class="stock-header">
   <div class="stock-info">
     <img src="logo.png" alt="Logo" class="logo">
-    <div>
-      <h1>Акция СОЛЛЕРС</h1>
-      <p>SVAV</p>
+    <div *ngIf="stockDetails$ | async as stockDetails">
+      <h1>{{ stockDetails.name }}</h1>
+      <p>{{ stockDetails.symbol }}</p>
     </div>
   </div>
   <div class="stock-stats">
-    <div class =  "money__value">
-      <p>Доходность за год</p>
-      <p>65,06 %</p>
-    </div>
-    <div class="price">
+    <div class="price" *ngIf="latestStockPrice$ | async as latestStockPrice">
       <p>Стоимость</p>
-      <p>1 041,5 ₽</p>
+      <p>{{ latestStockPrice }}</p>
     </div>
     <button>Купить</button>
   </div>
@@ -25,3 +21,9 @@
           [type]="'line'">
   </canvas>
 </div>
+<ng-container *ngIf="loading$ | async">
+  <app-loading-spinner></app-loading-spinner>
+</ng-container>
+<ng-container *ngIf="error$ | async as error">
+  <app-error-message [error]="error"></app-error-message>
+</ng-container>

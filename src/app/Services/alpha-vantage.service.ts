@@ -8,7 +8,7 @@ import {StockMatch, StockSearchResult} from "../Models/stock-search-result";
 })
 export class AlphaVantageService {
   private baseUrl = 'https://www.alphavantage.co/query';
-  private apiKey = 'POOUPAPDA79DT18Y';
+  private apiKey = 'WZWHILDDF2TZ37DD';
 
   constructor(private http: HttpClient) {}
 
@@ -20,6 +20,8 @@ export class AlphaVantageService {
     };
     return this.http.get(this.baseUrl, { params });
   }
+
+
 
   public getGlobalQuote(symbol: string): Observable<any> {
     const params = {

@@ -1,10 +1,17 @@
-<mat-card>
-  <mat-card-header>
-    <mat-card-title>{{ stock?.symbol }}</mat-card-title>
-    <mat-card-subtitle>{{ stock?.changePercent }}</mat-card-subtitle>
-  </mat-card-header>
-  <mat-card-content>
-    <p>Price: {{ stock?.price }}</p>
-    <p>Volume: {{ stock?.volume }}</p>
-  </mat-card-content>
-</mat-card>
+
+<!--<mat-card>-->
+<!--  <mat-card-header>-->
+<!--    <mat-card-title>{{ stock?.symbol }}</mat-card-title>-->
+<!--    <mat-card-subtitle>{{ stock?.changePercent }}</mat-card-subtitle>-->
+<!--  </mat-card-header>-->
+<!--  <mat-card-content>-->
+<!--    <p>Price: {{ stock?.price }}</p>-->
+<!--    <p>Volume: {{ stock?.volume }}</p>-->
+<!--  </mat-card-content>-->
+<!--</mat-card>-->
+
+<div class="stock-card" [routerLink]="['/stock', stock.symbol]">
+  <h2>{{ stock.symbol }}</h2>
+  <p>Price: {{ stock.price }}</p>
+  <p>Change: {{ stock.changePercent }}</p>
+</div>

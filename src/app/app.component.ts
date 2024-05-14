@@ -9,7 +9,7 @@ import {StockChartComponent} from "./Components/stock-chart/stock-chart.componen
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, MatToolbar, HttpClientModule, ToolbarComponent, StockChartComponent],
+  imports: [RouterOutlet, MatToolbar, HttpClientModule, ToolbarComponent, StockChartComponent, HomeComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
