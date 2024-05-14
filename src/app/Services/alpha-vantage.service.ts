@@ -2,13 +2,14 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {map, Observable} from "rxjs";
 import {StockMatch, StockSearchResult} from "../Models/stock-search-result";
+import {StockDetails} from "../store/models/stock";
 
 @Injectable({
   providedIn: 'root'
 })
 export class AlphaVantageService {
   private baseUrl = 'https://www.alphavantage.co/query';
-  private apiKey = 'WZWHILDDF2TZ37DD';
+  private apiKey = 'QVVYRZA97EA2FIYU';
 
   constructor(private http: HttpClient) {}
 
@@ -32,24 +33,33 @@ export class AlphaVantageService {
     return this.http.get(this.baseUrl, { params });
   }
 
-  public searchStocks(keywords: string): Observable<StockSearchResult[]> {
+  // public searchStocks(keywords: string): Observable<StockSearchResult[]> {
+  //   const params = {
+  //     function: 'SYMBOL_SEARCH',
+  //     keywords: keywords,
+  //     apikey: this.apiKey
+  //   };
+  //   return this.http.get<{bestMatches: StockMatch[]}>(this.baseUrl, {params}).pipe(
+  //     map(response => response.bestMatches.map((stock: StockMatch) => ({
+  //       symbol: stock["1. symbol"],
+  //       name: stock["2. name"],
+  //       type: stock["3. type"],
+  //       region: stock["4. region"],
+  //       marketOpen: stock["5. marketOpen"],
+  //       marketClose: stock["6. marketClose"],
+  //       timezone: stock["7. timezone"],
+  //       currency: stock["8. currency"],
+  //       matchScore: stock["9. matchScore"]
+  //     })))
+  //   );
+  // }
+
+  public searchStocks(query: string): Observable<{ bestMatches: StockDetails[] }> {
     const params = {
       function: 'SYMBOL_SEARCH',
-      keywords: keywords,
+      keywords: query,
       apikey: this.apiKey
     };
-    return this.http.get<{bestMatches: StockMatch[]}>(this.baseUrl, {params}).pipe(
-      map(response => response.bestMatches.map((stock: StockMatch) => ({
-        symbol: stock["1. symbol"],
-        name: stock["2. name"],
-        type: stock["3. type"],
-        region: stock["4. region"],
-        marketOpen: stock["5. marketOpen"],
-        marketClose: stock["6. marketClose"],
-        timezone: stock["7. timezone"],
-        currency: stock["8. currency"],
-        matchScore: stock["9. matchScore"]
-      })))
-    );
+    return this.http.get<{ bestMatches: StockDetails[] }>(this.baseUrl, {params});
   }
 }

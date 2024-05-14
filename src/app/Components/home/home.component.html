@@ -1,3 +1,4 @@
+<app-search></app-search>
 <div *ngIf="stocks$ | async as stocks; else loading">
   <app-stock-card *ngFor="let stock of stocks" [stock]="stock"></app-stock-card>
 </div>

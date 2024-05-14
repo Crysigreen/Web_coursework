@@ -15,9 +15,23 @@ export interface StockHome {
   changePercent: string;
 }
 
+
+
 export interface StockState {
   stocks: Stock[];
   loading: boolean;
   error: any;
   details: StockDetails | null;
+}
+
+export interface HomeState {
+  stocks: StockHome[];
+  loading: boolean;
+  error: any;
+}
+
+export interface SearchState {
+  results: StockDetails[];
+  loading: boolean;
+  error: any;
 }

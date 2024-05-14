@@ -5,15 +5,16 @@ import {AsyncPipe, CommonModule} from "@angular/common";
 import {combineLatest, map, Observable, of} from "rxjs";
 import {AlphaVantageService} from "../../Services/alpha-vantage.service";
 import {select, Store} from "@ngrx/store";
-import {HomeState} from "../../store/reducers/home.reducer";
+import {HomeState} from "../../store/models/stock";
 import {selectHomeError, selectHomeLoading, selectHomeStocks} from "../../store/selectors/home.selectors";
 import {loadHomeStocks} from "../../store/actions/home.actions";
 import {ErrorMessageComponent} from "../error-message/error-message.component";
+import {SearchComponent} from "../search/search.component";
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [HttpClientModule, StockCardComponent, AsyncPipe, CommonModule, ErrorMessageComponent],
+  imports: [HttpClientModule, StockCardComponent, AsyncPipe, CommonModule, ErrorMessageComponent, SearchComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })

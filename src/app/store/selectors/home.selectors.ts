@@ -1,5 +1,5 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
-import { HomeState } from '../reducers/home.reducer';
+import { HomeState } from "../models/stock";
 
 export const selectHomeState = createFeatureSelector<HomeState>('home');
 

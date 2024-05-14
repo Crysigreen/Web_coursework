@@ -82,29 +82,9 @@ export class StockChartComponent implements OnInit {
     this.latestStockPrice$ = this.store.pipe(select(selectLatestStockPrice));
   }
 
-  ngOnInit(): void {
-    this.store.dispatch(loadStocks());
-    this.store.dispatch(loadStockDetails());
-
-    this.stocks$.subscribe(stocks => {
-      if (stocks.length > 0) {
-        this.lineChartData.datasets[0].data = stocks.map(stock => stock.close);
-        this.lineChartData.labels = stocks.map(stock => stock.date);
-        if (this.chart) {
-          this.chart.update();
-        }
-      }
-    });
-  }
-
   // ngOnInit(): void {
-  //   this.route.paramMap.subscribe(params => {
-  //     const symbol = params.get('symbol');
-  //     if (symbol) {
-  //       this.store.dispatch(loadStocks());
-  //       this.store.dispatch(loadStockDetails({ symbol }));
-  //     }
-  //   });
+  //   this.store.dispatch(loadStocks());
+  //   this.store.dispatch(loadStockDetails());
   //
   //   this.stocks$.subscribe(stocks => {
   //     if (stocks.length > 0) {
@@ -116,4 +96,24 @@ export class StockChartComponent implements OnInit {
   //     }
   //   });
   // }
+
+  ngOnInit(): void {
+    this.route.paramMap.subscribe(params => {
+      const symbol = params.get('symbol');
+      if (symbol) {
+        this.store.dispatch(loadStocks({ symbol }));
+        this.store.dispatch(loadStockDetails({ symbol }));
+      }
+    });
+
+    this.stocks$.subscribe(stocks => {
+      if (stocks.length > 0) {
+        this.lineChartData.datasets[0].data = stocks.map(stock => stock.close);
+        this.lineChartData.labels = stocks.map(stock => stock.date);
+        if (this.chart) {
+          this.chart.update();
+        }
+      }
+    });
+  }
 }

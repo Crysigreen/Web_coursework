@@ -1,0 +1,18 @@
+<div class="search-box">
+  <input type="text" [formControl]="searchControl" placeholder="Search for stocks...">
+  <div class="results" *ngIf="searchResults$ | async as results">
+    <ng-container *ngIf="results.length; else noResults">
+      <div class="result-item" *ngFor="let result of results" [routerLink]="['/stock', result.symbol]">
+        <div class="result-content">
+          <p class="result-name">{{ result.name }}</p>
+          <p class="result-symbol">{{ result.symbol }}</p>
+        </div>
+      </div>
+    </ng-container>
+    <ng-template #noResults>
+      <p>No results found.</p>
+    </ng-template>
+  </div>
+  <p *ngIf="loading$ | async">Loading...</p>
+  <p *ngIf="error$ | async as error">{{ error }}</p>
+</div>

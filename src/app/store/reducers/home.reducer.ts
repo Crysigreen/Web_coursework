@@ -1,12 +1,8 @@
 import { createReducer, on } from '@ngrx/store';
 import * as HomeActions from '../actions/home.actions';
-import {StockHome} from '../models/stock';
+import { HomeState } from '../models/stock';
 
-export interface HomeState {
-  stocks: StockHome[];
-  loading: boolean;
-  error: any;
-}
+
 
 export const initialState: HomeState = {
   stocks: [],

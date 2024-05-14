@@ -9,7 +9,7 @@ import * as StockActions from '../actions/stock.actions';
 
 @Injectable()
 export class StockEffects {
-  private apiKey = 'W0G686C0UOECD888';
+  private apiKey = 'QVVYRZA97EA2FIYU';
   private symbol = 'AAPL';
   private url = `https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=${this.symbol}&apikey=${this.apiKey}`;
 
@@ -23,8 +23,8 @@ export class StockEffects {
   loadStocks$ = createEffect(() =>
     this.actions$.pipe(
       ofType(StockActions.loadStocks),
-      mergeMap(() =>
-        this.http.get<any>(this.url).pipe(
+      mergeMap(action =>
+        this.http.get<any>(`https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=${action.symbol}&apikey=${this.apiKey}`).pipe(
           map(response => {
             const timeSeries = response['Time Series (Daily)'];
             const stocks: Stock[] = Object.keys(timeSeries).map(date => ({
@@ -42,8 +42,8 @@ export class StockEffects {
   loadStockDetails$ = createEffect(() =>
     this.actions$.pipe(
       ofType(StockActions.loadStockDetails),
-      mergeMap(() =>
-        this.http.get<any>(this.urlSearch).pipe(
+      mergeMap(action =>
+        this.http.get<any>(`https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=${action.symbol}&apikey=${this.apiKey}`).pipe(
           map(data => {
             const bestMatch = data.bestMatches[0];
             const details = {
